@@ -5,7 +5,7 @@ public class ResourceCard {
         this.resourceType = resourceType;
     }
 
-    public ResourceType getResourceType() {
+    public ResourceType getType() {
         return resourceType;
     }
 }

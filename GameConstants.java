@@ -1,7 +1,6 @@
 import java.util.Map;
 
-public final class BoardGenerationConstants {
-    public static final int PLAYERS_AMOUNT = 4;
+public final class GameConstants {
     public static final int POINTS_TO_WIN = 10;
 
     public static final int TILES_AMOUNT = 19;

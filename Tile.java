@@ -1,43 +1,48 @@
 public class Tile {
-    Tile[] neighboringTiles;
+    Tile[] adjacentTiles;
     ResourceType resourceType;
-    Piece[][] pieces;
+    Piece[] roads;
+    Piece[] settlements;
     int numberToken;
 
     public Tile() {
-        this.neighboringTiles = new Tile[6];
+        this.adjacentTiles = new Tile[6];
         this.resourceType = null;
-        this.pieces = new Piece[6][2];
+        this.roads = new Piece[6];
+        this.settlements = new Piece[6];
         this.numberToken = 0;
     }
 
     public Tile(ResourceType resourceType, int numberToken) {
-        this.neighboringTiles = new Tile[6];
+        this.adjacentTiles = new Tile[6];
         this.resourceType = resourceType;
-        this.pieces = new Piece[6][2];
+        this.roads = new Piece[6];
+        this.settlements = new Piece[6];
         this.numberToken = numberToken;
     }
 
-    public Tile(Tile[] neighboringTiles) {
-        this.neighboringTiles = neighboringTiles;
+    public Tile(Tile[] adjacentTiles) {
+        this.adjacentTiles = adjacentTiles;
         this.resourceType = null;
-        this.pieces = new Piece[6][2];
+        this.roads = new Piece[6];
+        this.settlements = new Piece[6];
         this.numberToken = 0;
     }
 
-    public Tile(Tile[] neighboringTiles, ResourceType resourceType) {
-        this.neighboringTiles = neighboringTiles;
+    public Tile(Tile[] adjacentTiles, ResourceType resourceType) {
+        this.adjacentTiles = adjacentTiles;
         this.resourceType = resourceType;
-        this.pieces = new Piece[6][2];
+        this.roads = new Piece[6];
+        this.settlements = new Piece[6];
         this.numberToken = 0;
     }
 
-    public Tile[] getNeighboringTiles() {
-        return neighboringTiles;
+    public Tile[] getAdjacentTiles() {
+        return adjacentTiles;
     }
 
-    public void setNeighboringTiles(Tile[] neighboringTiles) {
-        this.neighboringTiles = neighboringTiles;
+    public void setAdjacentTilesTiles(Tile[] adjacentTiles) {
+        this.adjacentTiles = adjacentTiles;
     }
 
     public ResourceType getResourceType() {
@@ -46,16 +51,23 @@ public class Tile {
 
     public void placePiece(Piece piece, int position) {
         if (piece.getPieceType() == PieceType.ROAD) {
-            pieces[position][0] = piece;
+            roads[position] = piece;
             return;
         }
-        pieces[position][1] = piece;
+        settlements[position] = piece;
     }
 
     public String toString() {
         if (resourceType == null) {
-            return "DESERT";
+            return "DES";
         }
-        return numberToken + "-" + resourceType.toString();
+        return numberToken + "-" + resourceType.toString().substring(0,3);
+    }
+
+    public void printAdjacentTiles() {
+        for (Tile tile : adjacentTiles) {
+            System.out.println(tile);
+        }
+        System.out.println();
     }
 }
