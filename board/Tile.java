@@ -1,3 +1,8 @@
+package board;
+
+import enums.PieceType;
+import enums.ResourceType;
+
 public class Tile {
     Tile[] adjacentTiles;
     ResourceType resourceType;

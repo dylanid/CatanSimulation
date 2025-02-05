@@ -1,4 +1,11 @@
+package simulation;
 import java.util.ArrayList;
+
+import cards.DevelopmentCard;
+import cards.ResourceCard;
+import enums.Color;
+import enums.DevelopmentCardType;
+import enums.ResourceType;
 
 public class Player {
     private Color color;

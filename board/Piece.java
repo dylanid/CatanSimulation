@@ -1,3 +1,6 @@
+package board;
+import enums.PieceType;
+
 public class Piece {
     private PieceType pieceType;
 

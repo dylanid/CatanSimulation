@@ -1,3 +1,6 @@
+package cards;
+import enums.ResourceType;
+
 public class ResourceCard {
     ResourceType resourceType;
 

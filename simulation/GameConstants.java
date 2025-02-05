@@ -1,4 +1,9 @@
+package simulation;
 import java.util.Map;
+
+import board.Harbor;
+import enums.DevelopmentCardType;
+import enums.ResourceType;
 
 public final class GameConstants {
     public static final int POINTS_TO_WIN = 10;

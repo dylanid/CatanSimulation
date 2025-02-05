@@ -1,3 +1,6 @@
+package cards;
+import enums.DevelopmentCardType;
+
 public class DevelopmentCard {
     DevelopmentCardType developmentCardType;
 

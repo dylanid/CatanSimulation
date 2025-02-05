@@ -1,3 +1,6 @@
+package board;
+import enums.ResourceType;
+
 public class Harbor {
     private ResourceType resourceType;
     private int inputAmount;
