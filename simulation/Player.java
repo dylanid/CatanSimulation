@@ -1,6 +1,7 @@
 package simulation;
 import java.util.ArrayList;
 
+import board.Board;
 import cards.DevelopmentCard;
 import cards.ResourceCard;
 import enums.Color;
@@ -14,6 +15,8 @@ public class Player {
 
     public Player(Color color) {
         this.color = color;
+        this.resourceCards = new ArrayList<ResourceCard>();
+        this.developmentCards = new ArrayList<DevelopmentCard>();
     }
 
     public ArrayList<ResourceCard> getResourceCards() {
@@ -58,6 +61,26 @@ public class Player {
 
     public void removeDevelopmentCard(DevelopmentCard developmentCard) {
         developmentCards.remove(developmentCard);
+    }
+
+    public String displayTurn(Board board) {
+        String output = "Your Turn: \n\n";
+
+        output += "Resource Cards: ";
+        for (ResourceCard resourceCard : resourceCards) {
+            output += resourceCard.toString() + ", ";
+        }
+        output += "\n";
+
+        output += "Development Cards: ";
+        for (DevelopmentCard developmentCard : developmentCards) {
+            output += developmentCard.toString() + ", ";
+        }
+        output += "\nBoard: ";
+
+        output += board;
+
+        return output;
     }
 
     public String toString() {

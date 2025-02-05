@@ -11,4 +11,8 @@ public class ResourceCard {
     public ResourceType getType() {
         return resourceType;
     }
+
+    public String toString() {
+        return resourceType.toString();
+    }
 }

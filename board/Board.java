@@ -52,6 +52,32 @@ public class Board {
                 assignAdjacentTiles(x, y);
             }
         }
+
+        // Setup the harbor tiles
+        if (GameConstants.RANDOMIZE_HARBOR_TILES) {
+            // Add randomization logic later
+            
+        } else {
+            tiles[0][0].setHarbors(new Harbor[]{GameConstants.HARBOR_PIECES[0], GameConstants.HARBOR_PIECES[0], null, null, null, null});
+            tiles[0][1].setHarbors(new Harbor[]{null, GameConstants.HARBOR_PIECES[1], GameConstants.HARBOR_PIECES[1], null, null, null});
+            tiles[0][2].setHarbors(new Harbor[]{GameConstants.HARBOR_PIECES[1], null, null, GameConstants.HARBOR_PIECES[2], null, null});
+            tiles[1][0].setHarbors(new Harbor[]{GameConstants.HARBOR_PIECES[8], null, null, null, null, GameConstants.HARBOR_PIECES[8]});
+            tiles[1][1].setHarbors(new Harbor[]{null, null, null, null, null, null});
+            tiles[1][2].setHarbors(new Harbor[]{null, null, null, null, null, null});
+            tiles[1][3].setHarbors(new Harbor[]{null, GameConstants.HARBOR_PIECES[2], GameConstants.HARBOR_PIECES[2], null, null, null});
+            tiles[2][0].setHarbors(new Harbor[]{null, GameConstants.HARBOR_PIECES[8], null, null, GameConstants.HARBOR_PIECES[7], null});
+            tiles[2][1].setHarbors(new Harbor[]{null, null, null, null, null, null});
+            tiles[2][2].setHarbors(new Harbor[]{null, null, null, null, null, null});
+            tiles[2][3].setHarbors(new Harbor[]{null, null, null, null, null, null});
+            tiles[2][4].setHarbors(new Harbor[]{null, null, GameConstants.HARBOR_PIECES[3], GameConstants.HARBOR_PIECES[3], null, null});
+            tiles[3][0].setHarbors(new Harbor[]{GameConstants.HARBOR_PIECES[7], null, null, null, null, GameConstants.HARBOR_PIECES[7]});
+            tiles[3][1].setHarbors(new Harbor[]{null, null, null, null, null, null});
+            tiles[3][2].setHarbors(new Harbor[]{null, null, null, null, null, null});
+            tiles[3][3].setHarbors(new Harbor[]{null, null, null, GameConstants.HARBOR_PIECES[4], GameConstants.HARBOR_PIECES[4], null});
+            tiles[4][0].setHarbors(new Harbor[]{null, null, null, null, GameConstants.HARBOR_PIECES[6], GameConstants.HARBOR_PIECES[6]});
+            tiles[4][1].setHarbors(new Harbor[]{null, null, null, GameConstants.HARBOR_PIECES[5], GameConstants.HARBOR_PIECES[5], null});
+            tiles[4][2].setHarbors(new Harbor[]{null, null, GameConstants.HARBOR_PIECES[4], null, null, GameConstants.HARBOR_PIECES[5]});
+        }
     }
 
     private int getQMin(int x) {
@@ -100,7 +126,19 @@ public class Board {
         }
     }
 
-    private void printBoard() {
+    public String toString() {
+        String output = "";
+        for (int x = 0; x < tiles.length; x++) {
+            for (int y = 0; y < tiles[x].length; y++) {
+                output += "\n" + tiles[x][y] + "\n Harbors: " + tiles[x][y].getHarborsAsString() + " Settlements: " + tiles[x][y].getSettlementsAsString() + " Roads: " + tiles[x][y].getRoadsAsString() + " Adjacent Tiles: " + tiles[x][y].getAdjacentTilesAsString();
+            }
+        }
+        return output;
+    }
+
+    
+
+    public void printBoard() {
         System.out.println("Board Layout:\n");
         for (int x = 0; x < tiles.length; x++) {
             if (x == 0 || x == 4) {

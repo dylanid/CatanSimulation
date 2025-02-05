@@ -10,6 +10,7 @@ import java.util.Stack;
 
 import board.Board;
 import cards.DevelopmentCard;
+import cards.ResourceCard;
 import enums.Color;
 import enums.DevelopmentCardType;
 import enums.ResourceType;
@@ -20,6 +21,7 @@ public class Game {
     private Map<ResourceType, Integer> resourceCards = new HashMap<>(GameConstants.RESOURCE_CARDS);
     private Player[] players;
     private Random random = new Random();
+    private Dice dice = new Dice();
 
     public Game(int numPlayers) {
         board = new Board();
@@ -55,11 +57,15 @@ public class Game {
         }
         for (int i = 0; i < numPlayers; i++) {
             order[numPlayers + i] = shuffledPlayers.get(numPlayers - i - 1);
-        }
-        for (Player player : order) {
-            System.out.println(player.toString());
-        }
-        
+        } 
+
+        players[0].addResourceCard(new ResourceCard(ResourceType.BRICK));
+        players[0].addDevelopmentCard(new DevelopmentCard(DevelopmentCardType.KNIGHT));
+        System.out.println(players[0].displayTurn(board));;
+    }
+
+    public Board getBoard() {
+        return board;
     }
 
     public void printPlayers() {

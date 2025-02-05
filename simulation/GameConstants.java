@@ -7,6 +7,7 @@ import enums.ResourceType;
 
 public final class GameConstants {
     public static final int POINTS_TO_WIN = 10;
+    public static final boolean RANDOMIZE_HARBOR_TILES = false;
 
     public static final int TILES_AMOUNT = 19;
     public static final Map<ResourceType, Integer> TILE_RESOURCE_AMOUNTS = Map.of(
@@ -20,13 +21,13 @@ public final class GameConstants {
     public static final int SEA_FRAMES_AMOUNT = 6;
     public static final int HARBOR_PIECES_AMOUNT = 9;
     public static final Harbor[] HARBOR_PIECES = {
-        new Harbor(null, 3, 1),
+        new Harbor(ResourceType.ANY, 3, 1),
         new Harbor(ResourceType.GRAIN, 2, 1),
         new Harbor(ResourceType.ORE, 2, 1),
-        new Harbor(null, 3, 1),
+        new Harbor(ResourceType.ANY, 3, 1),
         new Harbor(ResourceType.WOOL, 2, 1),
-        new Harbor(null, 3, 1),
-        new Harbor(null, 3, 1),
+        new Harbor(ResourceType.ANY, 3, 1),
+        new Harbor(ResourceType.ANY, 3, 1),
         new Harbor(ResourceType.BRICK, 2, 1),
         new Harbor(ResourceType.LUMBER, 2, 1),
     };
